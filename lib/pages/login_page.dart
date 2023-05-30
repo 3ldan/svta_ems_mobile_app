@@ -19,9 +19,6 @@ class _LoginPageState extends State<LoginPage> {
   final passwordController = TextEditingController();
 
   void login() async {
-    print(usernameController.text);
-    print(passwordController.text);
-
     var navigationResult = await Navigator.push(
         context, new MaterialPageRoute(builder: (context) => HomePage()));
 
@@ -35,9 +32,6 @@ class _LoginPageState extends State<LoginPage> {
   }
 
   void register_screen() async {
-    print(usernameController.text);
-    print(passwordController.text);
-
     var navigationResult = await Navigator.push(
         context, new MaterialPageRoute(builder: (context) => RegisterPage()));
 

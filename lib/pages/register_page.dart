@@ -15,7 +15,6 @@ class RegisterPage extends StatefulWidget {
 }
 
 class _RegisterPageState extends State<RegisterPage> {
-  final accTypeController = TextEditingController();
   final nameController = TextEditingController();
   final surnameController = TextEditingController();
   final emailController = TextEditingController();
@@ -23,6 +22,7 @@ class _RegisterPageState extends State<RegisterPage> {
   final passwordController = TextEditingController();
   final confirmPasswordController = TextEditingController();
 
+  bool accountType = true;
   String _dropdownvalue = 'Public';
   bool _TCsIsChecked = false;
 
@@ -30,32 +30,16 @@ class _RegisterPageState extends State<RegisterPage> {
   var items = ['Public', 'Service Provider'];
 
   void register() async {
-    print(accTypeController.text);
-    print(nameController.text);
-
-    var navigationResult = await Navigator.push(
-        context, new MaterialPageRoute(builder: (context) => HomePage()));
-
-    if (navigationResult == true) {
-      showDialog(
-          context: context,
-          builder: (context) => AlertDialog(
-                title: Text("Hello World"),
-              ));
+    if (_dropdownvalue != 'Public') {
+      accountType = false;
     }
+    await Navigator.push(
+        context, new MaterialPageRoute(builder: (context) => HomePage()));
   }
 
   void login_screen() async {
-    var navigationResult = await Navigator.push(
+    await Navigator.push(
         context, new MaterialPageRoute(builder: (context) => LoginPage()));
-
-    if (navigationResult == true) {
-      showDialog(
-          context: context,
-          builder: (context) => AlertDialog(
-                title: Text("Hello World"),
-              ));
-    }
   }
 
   void clicked(String h) {

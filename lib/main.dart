@@ -22,7 +22,7 @@ class _MyAppState extends State<MyApp> {
       home: const LoginPage(),
       routes: {
         // When navigating to the "/second" route, build the SecondScreen widget.
-        '/home': (context) => HomePage(),
+        '/home': (context) => const HomePage(),
         '/login': (context) => const LoginPage(),
         '/register': (context) => const RegisterPage(),
       },
